@@ -1,4 +1,5 @@
 import flask
+import argparse
 
 from src.model import Model
 from src.utils import encode_image, decode_image
@@ -21,5 +22,10 @@ def rotate_image():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--port', type=int, default=399,
+                        help='Flask server port.')
+    args = parser.parse_args()
+
     MODEL = Model()
-    app.run(host="0.0.0.0", port=399)
+    app.run(host="0.0.0.0", port=args.port)
