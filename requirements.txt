@@ -1,0 +1,12 @@
+numpy==1.20.3
+
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==1.9.0+cpu
+torchvision==0.10.0+cpu
+
+opencv-python==4.5.2.52
+pudb==2021.1
+requests==2.26.0
+matplotlib==3.4.2
+notebook==6.4.0
+Flask==2.0.2

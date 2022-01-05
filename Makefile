@@ -23,7 +23,6 @@ run:
 	docker run --rm -it \
 		$(CPUS_OPTION) \
 		--net=host \
-		--ipc=host \
 		-v $(shell pwd):/workdir \
 		--name=$(NAME) \
 		$(NAME) \
