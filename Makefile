@@ -7,9 +7,14 @@ else
 	CPUS_OPTION=--cpus=$(CPUS)
 endif
 
-HOST_PORT?=400
+CONTAINER_PORT?=405
 
-CONTAINER_PORT?=399
+HOST_PORT?=none
+ifeq ($(HOST_PORT), none)
+	PUBLISH_OPTION=
+else
+	PUBLISH_OPTION=--publish=$(HOST_PORT):$(CONTAINER_PORT)
+endif
 
 NET?=none
 ifeq ($(NET), none)
@@ -21,8 +26,6 @@ endif
 .PHONY: all stop build run
 
 all: stop build run
-
-all-dev: stop build run-dev
 
 build:
 	docker build \
@@ -36,7 +39,7 @@ run:
 	docker run --rm -it \
 		$(CPUS_OPTION) \
 		$(NET_OPTION) \
-		-p $(HOST_PORT):$(CONTAINER_PORT) \
+		$(PUBLISH_OPTION) \
 		-v $(shell pwd):/workdir \
 		--name=$(NAME) \
 		$(NAME) \
@@ -46,8 +49,8 @@ run-dev:
 	docker run --rm -it \
 		$(CPUS_OPTION) \
 		$(NET_OPTION) \
-		-p $(HOST_PORT):$(CONTAINER_PORT) \
+		$(PUBLISH_OPTION) \
 		-v $(shell pwd):/workdir \
-		--name=$(NAME) \
+		--name=$(NAME)-dev \
 		$(NAME) \
 		bash
