@@ -29,7 +29,7 @@ sudo make all NET=host CONTAINER_PORT=<container port>
 
 ```bash
 python3 run_request_client.py \
---ip <externtal host ip> \
+--ip <public host ip> \
 --port <container port> \
 --path_to_image data/picture.jpg \
 --save_dir pred/
@@ -43,7 +43,7 @@ sudo make all HOST_PORT=<host port> CONTAINER_PORT=<container port>
 
 ```bash
 python3 run_request_client.py \
---ip <externtal host ip> \
+--ip <public host ip> \
 --port <host port> \
 --path_to_image data/picture.jpg \
 --save_dir pred/
