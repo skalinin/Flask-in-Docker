@@ -10,5 +10,4 @@ class Model:
         k (Int): Number of times the array is rotated by 90 degrees.
     """
     def __call__(self, array, k=1):
-        time.sleep(1)
         return np.rot90(array, k)

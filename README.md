@@ -59,7 +59,7 @@ sudo make all CONTAINER_PORT=<container port>  # no --net and --publish flags to
 
 ```bash
 python3 run_request_client.py \
---ip <internal host ip> \  # internal ip
+--ip <local host ip> \
 --port <container port> \
 --path_to_image data/picture.jpg \
 --save_dir pred/
@@ -71,7 +71,7 @@ The client must be ran from the container where the server is located (the conta
 
 ```bash
 python3 run_request_client.py \
---ip <localhost> \  # localhost, 0.0.0.0 or 127.0.0.1
+--ip <local host ip> or <localhost> \  # localhost, 0.0.0.0 or 127.0.0.1
 --port <container port> \
 --path_to_image data/picture.jpg \
 --save_dir pred/
